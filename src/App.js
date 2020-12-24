@@ -1,7 +1,6 @@
 import './assets/main.css';
-// import './assets/ref.css';
 import Navbar from './components/layout/Navbar';
-import UserItem from './components/users/UserItem';
+import Users from './components/users/Users';
 import React, { Component } from 'react';
 
 class App extends Component {
@@ -9,7 +8,9 @@ class App extends Component {
     return (
       <div>
         <Navbar title="Git Finder" icon="fab fa-github" />
-        <UserItem />
+        <div className="container m-auto">
+          <Users />
+        </div>
       </div>
     );
   }
