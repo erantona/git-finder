@@ -2,13 +2,10 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
   theme: {
-    extend: {
-      colors: {
-        'light-blue': colors.lightBlue,
-        cyan: colors.cyan,
-      },
+    backdropFilter: {
+      none: 'none',
+      blur: 'blur(20px)',
     },
   },
-  variants: {},
-  plugins: [],
+  plugins: [require('tailwindcss-filters')],
 };

@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 const UserItem = ({ user: { login, avatar_url, html_url } }) => {
   return (
-    <div className=" p-4 m-3 border-2 bg-gray-100 rounded-md shadow-md text-center">
+    <div
+      className="flex-1 px-24 py-4 m-3 h-56 space-x-12 text-center rounded-md bg-white shadow-lg bg-opacity-25 bg-clip-padding"
+      style={{ backdropFilter: 'blur(20px)' }}
+    >
       <img
         src={avatar_url}
         alt=""

@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 const Navbar = ({ icon, title }) => {
   return (
-    <nav className="w-screen bg-blue-500 p-4 pl-6 text-white text-2xl">
+    <nav
+      className="w-screen p-4 pl-6 text-2xl font-semibold bg-white shadow-lg bg-opacity-25 bg-clip-padding"
+      style={{ backdropFilter: 'blur(20px)' }}
+    >
       <h1>
         <i className={icon} />
         <span className="pl-2">{title}</span>

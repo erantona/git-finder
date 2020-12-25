@@ -8,7 +8,7 @@ const Users = ({ users, loading }) => {
     return <Spinner />;
   } else {
     return (
-      <div className=" grid grid-cols-3 gap-4">
+      <div className="flex flex-wrap">
         {users.map((user) => (
           <UserItem key={user.id} user={user} />
         ))}
