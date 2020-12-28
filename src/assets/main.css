@@ -29128,16 +29128,6 @@ video {
   animation: bounce 1s infinite;
 }
 
-.backdrop-none {
-  -webkit-backdrop-filter: none;
-          backdrop-filter: none;
-}
-
-.backdrop-blur {
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
-}
-
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -57685,16 +57675,6 @@ video {
 
   .sm\:animate-bounce {
     animation: bounce 1s infinite;
-  }
-
-  .sm\:backdrop-none {
-    -webkit-backdrop-filter: none;
-            backdrop-filter: none;
-  }
-
-  .sm\:backdrop-blur {
-    -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
   }
 }
 
@@ -86246,16 +86226,6 @@ video {
   .md\:animate-bounce {
     animation: bounce 1s infinite;
   }
-
-  .md\:backdrop-none {
-    -webkit-backdrop-filter: none;
-            backdrop-filter: none;
-  }
-
-  .md\:backdrop-blur {
-    -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
-  }
 }
 
 @media (min-width: 1024px) {
@@ -114805,16 +114775,6 @@ video {
 
   .lg\:animate-bounce {
     animation: bounce 1s infinite;
-  }
-
-  .lg\:backdrop-none {
-    -webkit-backdrop-filter: none;
-            backdrop-filter: none;
-  }
-
-  .lg\:backdrop-blur {
-    -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
   }
 }
 
@@ -143366,16 +143326,6 @@ video {
   .xl\:animate-bounce {
     animation: bounce 1s infinite;
   }
-
-  .xl\:backdrop-none {
-    -webkit-backdrop-filter: none;
-            backdrop-filter: none;
-  }
-
-  .xl\:backdrop-blur {
-    -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
-  }
 }
 
 @media (min-width: 1536px) {
@@ -171925,15 +171875,5 @@ video {
 
   .\32xl\:animate-bounce {
     animation: bounce 1s infinite;
-  }
-
-  .\32xl\:backdrop-none {
-    -webkit-backdrop-filter: none;
-            backdrop-filter: none;
-  }
-
-  .\32xl\:backdrop-blur {
-    -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
   }
 }

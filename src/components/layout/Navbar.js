@@ -9,7 +9,9 @@ const Navbar = ({ icon, title }) => {
     >
       <h1>
         <i className={icon} />
-        <span className="pl-2">{title}</span>
+        <span className="pl-2 font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-blue-500">
+          {title}
+        </span>
       </h1>
     </nav>
   );

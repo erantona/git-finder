@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
-import spinner from '../../assets/spiner.gif';
+import React from 'react';
+import RingLoader from 'react-spinners/PuffLoader';
 
 const Spinner = () => {
   return (
-    <Fragment>
-      <img src={spinner} alt="Loading.." className="block m-auto w-48" />
-    </Fragment>
+    <div className="mt-10 flex justify-center items-center">
+      <RingLoader size={150} color={'#E2E5E9'} />
+    </div>
   );
 };
 
