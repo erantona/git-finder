@@ -1,15 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ icon, title }) => {
   return (
-    <nav className="p-4 pl-6 text-2xl font-semibold bg-gray-900">
-      <h1>
+    <nav
+      className="p-4 pl-6 text-lg bg-gray-900 flex text-white"
+      style={{ justifyContent: 'space-between' }}
+    >
+      <h1 className="pl-2 font-bold text-2xl">
         <i className={icon} style={{ color: 'white' }} />
-        <span className="pl-2 font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-blue-500">
-          {title}
-        </span>
+        <span className="pl-2">{title}</span>
       </h1>
+      <ul className="flex">
+        <li className=" hover:text-gray-400">
+          <Link to="/">Home</Link>
+        </li>
+        <li className="px-4 hover:text-gray-400">
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
     </nav>
   );
 };

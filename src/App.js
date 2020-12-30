@@ -2,7 +2,9 @@ import './assets/main.css';
 import Navbar from './components/layout/Navbar';
 import Alert from './components/layout/Alert';
 import Users from './components/users/Users';
+import User from './components/users/User';
 import Search from './components/users/Search';
+import About from './components/pages/About';
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Axios from 'axios';
@@ -10,6 +12,7 @@ import Axios from 'axios';
 class App extends Component {
   state = {
     users: [],
+    user: {},
     loading: false,
     alert: null,
   };
@@ -22,9 +25,10 @@ class App extends Component {
 
     this.setState({ users: res.data, loading: false });
   }
+
   searchUsers = async (text) => {
-    console.log(text);
     this.setState({ loading: true });
+
     const res = await Axios.get(
       `https://api.github.com/search/users?q=${text}&clint_id=${process.env.REACT_GITHUB_CLIENT_ID}
       &clint_secret=${process.env.REACT_GITHUB_CLIENT_SECRET}`
@@ -32,6 +36,18 @@ class App extends Component {
     console.log(res.data.items.length);
     this.setState({ users: res.data.items, loading: false });
   };
+
+  getUser = async (userName) => {
+    this.setState({ loading: true });
+
+    const res = await Axios.get(
+      `https://api.github.com/users/${userName}?clint_id=${process.env.REACT_GITHUB_CLIENT_ID}
+      &clint_secret=${process.env.REACT_GITHUB_CLIENT_SECRET}`
+    );
+    this.setState({ user: res.data, loading: false });
+    // console.log(user);
+  };
+
   clearUsers = () => this.setState({ loading: false, users: [] });
 
   setAlert = (msg, type) => {
@@ -40,34 +56,46 @@ class App extends Component {
       this.setState({ alert: null });
     }, 3000);
   };
+
   render() {
+    const { users, user, loading, alert } = this.state;
     return (
       <Router>
         <div className="">
           <Navbar title="Git Finder" icon="fab fa-github" />
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={(props) => (
-                <Fragment>
-                  <div className="container m-auto">
-                    <Alert alert={this.state.alert} />
+          <div className="container m-auto text-white">
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={(props) => (
+                  <Fragment>
+                    <Alert alert={alert} />
                     <Search
                       searchUsers={this.searchUsers}
                       clearUsers={this.clearUsers}
                       setAlert={this.setAlert}
-                      showClear={this.state.users.length > 0 ? true : false}
+                      showClear={users.length > 0 ? true : false}
                     />
-                    <Users
-                      loading={this.state.loading}
-                      users={this.state.users}
-                    />
-                  </div>
-                </Fragment>
-              )}
-            />
-          </Switch>
+                    <Users loading={loading} users={users} />
+                  </Fragment>
+                )}
+              />
+              <Route exact path="/about" component={About} />
+              <Route
+                exact
+                path="/user/:login"
+                render={(props) => (
+                  <User
+                    {...props}
+                    getUser={this.getUser}
+                    user={user}
+                    loading={loading}
+                  />
+                )}
+              />
+            </Switch>
+          </div>
         </div>
       </Router>
     );
