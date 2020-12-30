@@ -9,12 +9,18 @@ class Search extends Component {
   static propTypes = {
     searchUsers: PropTypes.func.isRequired,
     clearUsers: PropTypes.func.isRequired,
+    showClear: PropTypes.bool.isRequired,
+    setAlert: PropTypes.func.isRequired,
   };
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.searchUsers(this.state.text);
-    this.setState({ text: '' });
+    if (this.state.text === '') {
+      this.props.setAlert('Please enter something', 'bg-red-300');
+    } else {
+      this.props.searchUsers(this.state.text);
+      this.setState({ text: '' });
+    }
   };
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
@@ -23,7 +29,7 @@ class Search extends Component {
     return (
       <div className="">
         <form
-          className="mt-3 flex justify-center items-center space-x-6 "
+          className="mt-4 mx-auto max-w-3xl flex justify-center space-x-4"
           onSubmit={this.onSubmit}
         >
           <input
@@ -38,18 +44,18 @@ class Search extends Component {
           <input
             type="submit"
             value="Search"
-            className="h-12 w-20 px-2 inline-block font-semibold bg-gray-900 rounded-md text-white shadow-md hover:bg-gray-800 cursor-pointer"
+            className="h-12 w-20 px-2 cursor-pointer rounded-md bg-gray-900 shadow-lg text-white  transition duration-500 ease-in-out hover:bg-gray-700 "
           />
+          {this.props.showClear && (
+            <button
+              className="h-12 w-20 px-2 rounded-md bg-gray-900 shadow-lg text-white  transition duration-500 ease-in-out hover:bg-gray-700 "
+              type="button"
+              onClick={this.props.clearUsers}
+            >
+              clear
+            </button>
+          )}
         </form>
-        {this.props.showClear && (
-          <button
-            className="h-12 mt-2 w-20 ml-8 lg:ml-4 2xl:ml-8 inline-block font-semibold rounded-md shadow-md hover:bg-yellow-300 cursor-pointer bg-yellow-200"
-            type="button"
-            onClick={this.props.clearUsers}
-          >
-            clear
-          </button>
-        )}
       </div>
     );
   }
