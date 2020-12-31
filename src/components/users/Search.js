@@ -36,19 +36,20 @@ class Search extends Component {
             type="text"
             name="text"
             placeholder="Search Users..."
-            className=" px-2 h-12 w-64 rounded-md bg-white shadow-lg bg-opacity-25 bg-clip-padding outline-none text-black"
+            className=" px-2 h-12 w-64 rounded-md bg-gray-300 shadow-lg bg-opacity-25 bg-clip-padding outline-none text-black focus:ring-2 focus:ring-blue-600 focus:ring-opacity-10"
             style={{ backdropFilter: 'blur(20px)' }}
             value={this.state.text}
             onChange={this.onChange}
+            autoComplete="off"
           />
           <input
             type="submit"
             value="Search"
-            className="h-12 w-20 px-2 cursor-pointer rounded-md bg-gray-900 shadow-lg text-white  transition duration-500 ease-in-out hover:bg-gray-700 "
+            className="h-12 w-20 px-2 cursor-pointer rounded-md bg-gray-800 shadow-lg ease-in-out transform duration-100 hover:bg-gray-700 hover:text-gray-100 hover:scale-95  text-gray-200 font-semibold"
           />
           {this.props.showClear && (
             <button
-              className="h-12 w-20 px-2 rounded-md bg-gray-900 shadow-lg text-white  transition duration-500 ease-in-out hover:bg-gray-700 "
+              className="h-12 w-20 px-2 rounded-md bg-gray-800 shadow-lg ease-in-out transform duration-100 hover:bg-gray-700 hover:text-gray-100 hover:scale-95  text-gray-200 font-semibold"
               type="button"
               onClick={this.props.clearUsers}
             >

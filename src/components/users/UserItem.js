@@ -5,17 +5,14 @@ import { Link } from 'react-router-dom';
 const UserItem = ({ user: { login, avatar_url, html_url } }) => {
   return (
     <div className=" ">
-      <div
-        className="py-6 text-center rounded-md bg-white shadow-lg bg-opacity-25 bg-clip-padding"
-        style={{ backdropFilter: 'blur(20px)' }}
-      >
+      <div className="py-6 m-10 text-center rounded-md bg-gray-200 shadow-lg transform duration-100 hover:scale-105 hover:shadow-2xl">
         <img
           src={avatar_url}
           alt=""
           className="rounded-full m-auto"
           style={{ width: '100px' }}
         />
-        <p className="font-semibold pt-2 text-lg">{login}</p>
+        <p className="font-semibold pt-2 text-lg text-black">{login}</p>
         <div className="pt-4">
           <Link
             to={`/user/${login}`}

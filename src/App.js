@@ -15,6 +15,7 @@ class App extends Component {
     user: {},
     loading: false,
     alert: null,
+    repos: [],
   };
   async componentDidMount() {
     this.setState({ loading: true });
@@ -48,6 +49,15 @@ class App extends Component {
     // console.log(user);
   };
 
+  getRepos = async (userName) => {
+    const res = await Axios.get(
+      `https://api.github.com/users/${userName}/repos?per_page=6&sort=created:asc&clint_id=${process.env.REACT_GITHUB_CLIENT_ID}
+      &clint_secret=${process.env.REACT_GITHUB_CLIENT_SECRET}`
+    );
+    this.setState({ repos: res.data });
+    console.log(res.data);
+  };
+
   clearUsers = () => this.setState({ loading: false, users: [] });
 
   setAlert = (msg, type) => {
@@ -58,10 +68,10 @@ class App extends Component {
   };
 
   render() {
-    const { users, user, loading, alert } = this.state;
+    const { users, user, loading, alert, repos } = this.state;
     return (
       <Router>
-        <div className="">
+        <div className="bg-gray-100 min-h-screen">
           <Navbar title="Git Finder" icon="fab fa-github" />
           <div className="container m-auto text-white">
             <Switch>
@@ -91,6 +101,8 @@ class App extends Component {
                     getUser={this.getUser}
                     user={user}
                     loading={loading}
+                    getRepos={this.getRepos}
+                    repos={repos}
                   />
                 )}
               />
