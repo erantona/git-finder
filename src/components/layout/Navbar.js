@@ -9,7 +9,7 @@ const Navbar = ({ icon, title }) => {
       style={{ justifyContent: 'space-between' }}
     >
       <h1 className="pl-2 font-bold text-2xl">
-        <i className="fab fa-github-alt" style={{ color: '' }} />
+        <i className="fab fa-github-alt dark:text-blue-200" />
         <span className="pl-2">{title}</span>
       </h1>
       <ul className="flex space-x-3">

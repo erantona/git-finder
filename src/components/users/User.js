@@ -8,7 +8,6 @@ export class User extends Component {
   componentDidMount() {
     this.props.getUser(this.props.match.params.login);
     this.props.getRepos(this.props.match.params.login);
-    console.log(this.props);
   }
 
   static propTypes = {
@@ -44,12 +43,12 @@ export class User extends Component {
 
     return (
       <Fragment>
-        <div className="grid md:grid-cols-2 bg-white mt-3 rounded-lg pb-3">
-          <div className="flex flex-col space-y-3 text-black">
+        <div className="grid md:grid-cols-2 bg-white dark:bg-gray-800 dark:text-blue-200 mt-3 rounded-lg pb-3">
+          <div className="flex flex-col space-y-3 text-black dark:text-blue-200">
             <Link to="/">
               <button
                 type="button"
-                className="h-12 mt-3 ml-3 px-3 rounded-md bg-blue-200 transform duration-100 ease-in-out hover:bg-blue-300 hover:text-gray-800 hover:scale-95 font-semibold"
+                className="h-12 mt-3 ml-3 px-3 rounded-md bg-blue-200 dark:text-blue-800 transform duration-100 ease-in-out hover:bg-blue-300 hover:text-gray-800 hover:scale-95 font-semibold"
               >
                 Back to Search..
               </button>
@@ -57,6 +56,7 @@ export class User extends Component {
 
             <img
               src={avatar_url}
+              alt=""
               className="rounded-full mx-auto border-blue-200 border-8 hover:border-blue-400 cursor-pointer"
               style={{ width: '200px' }}
             />
@@ -81,7 +81,7 @@ export class User extends Component {
               ''
             )}
           </div>
-          <div className="p-4 flex flex-col space-y-6 text-black max-w-lg mx-auto">
+          <div className="p-4 flex flex-col space-y-6 text-black dark:text-blue-200 max-w-lg mx-auto">
             {bio ? (
               <p className="max-w-md">
                 <span className="font-bold text-blue-800">Bio:</span>
@@ -95,7 +95,7 @@ export class User extends Component {
               <a href={html_url}>
                 <button
                   type="button"
-                  className="outline-none h-12 mt-3 ml-3 px-3 rounded-md bg-blue-200 transform duration-100 ease-in-out hover:bg-blue-300 hover:text-gray-800 hover:scale-95 font-semibold"
+                  className="outline-none h-12 mt-3 ml-3 px-3 rounded-md bg-blue-200 dark:text-blue-800 transform duration-100 ease-in-out hover:bg-blue-300 hover:text-gray-800 hover:scale-95 font-semibold"
                 >
                   Visit Github Profile
                 </button>
@@ -133,7 +133,7 @@ export class User extends Component {
             {blog ? (
               <p className="border-b-4 mx-auto">
                 <span className="font-bold text-blue-800">Blog: </span>
-                <a href={blog} target="_blank">
+                <a href={blog} target="_blank" rel="noreferrer">
                   {blog}
                 </a>
               </p>
@@ -141,26 +141,26 @@ export class User extends Component {
               ''
             )}
           </div>
-          <div className="text-black grid sm:grid-cols-2 md:grid-cols-4 col-span-2 mx-auto p-4 ">
-            <p className="bg-blue-200 px-4 py-2 rounded-md my-4 mx-3">
-              <span className="font-bold">Followers: </span>
-              {followers}
-            </p>
-            <p className="bg-blue-200 px-4 py-2 rounded-md my-4 mx-3">
-              <span className="font-bold">Following: </span>
-              {following}
-            </p>
-            <p className="bg-blue-200 px-4 py-2 rounded-md my-4 mx-3">
-              <span className="font-bold">Public Repos: </span>
-              {public_repos}
-            </p>
-            <p className="bg-blue-200 px-4 py-2 rounded-md my-4 mx-3">
-              <span className="font-bold">Public Gists: </span>
-              {public_gists}
-            </p>
-          </div>
         </div>
-        <div className="mt-8 bg-white rounded-lg text-black">
+        <div className="text-black bg-white dark:bg-gray-800 mt-3 rounded-lg grid sm:grid-cols-2 md:grid-cols-4 col-span-2 mx-auto p-4 lg:px-40">
+          <p className="bg-green-200 px-4 py-2 rounded-md my-4 mx-3">
+            <span className="font-bold">Followers: </span>
+            {followers}
+          </p>
+          <p className="bg-pink-200 px-4 py-2 rounded-md my-4 mx-3">
+            <span className="font-bold">Following: </span>
+            {following}
+          </p>
+          <p className="bg-yellow-200 px-4 py-2 rounded-md my-4 mx-3">
+            <span className="font-bold">Public Repos: </span>
+            {public_repos}
+          </p>
+          <p className="bg-red-200 px-4 py-2 rounded-md my-4 mx-3">
+            <span className="font-bold">Public Gists: </span>
+            {public_gists}
+          </p>
+        </div>
+        <div className="mt-8 bg-white dark:bg-gray-800 dark:text-blue-200 rounded-lg text-black">
           <p className="text-3xl md:text-4xl p-6 font-semibold">
             Recent public repos
           </p>

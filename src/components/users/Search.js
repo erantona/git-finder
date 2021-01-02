@@ -36,7 +36,7 @@ class Search extends Component {
             type="text"
             name="text"
             placeholder="Search Users..."
-            className=" px-2 h-12 w-64 rounded-md bg-white shadow-md outline-none text-black focus:ring-2 focus:ring-blue-600 focus:ring-opacity-10 focus:shadow-xl hover:shadow-lg"
+            className=" px-2 h-12 w-64 rounded-md bg-white dark:bg-gray-800 shadow-md outline-none text-black dark:text-blue-200 focus:ring-2 focus:ring-blue-600 focus:ring-opacity-10 focus:shadow-xl hover:shadow-lg"
             style={{ backdropFilter: 'blur(20px)' }}
             value={this.state.text}
             onChange={this.onChange}

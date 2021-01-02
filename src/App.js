@@ -71,42 +71,44 @@ class App extends Component {
     const { users, user, loading, alert, repos } = this.state;
     return (
       <Router>
-        <div className="bg-gray-200 pb-36  min-h-screen">
-          <Navbar title="Git Finder" icon="fab fa-github" />
-          <div className="sm:container m-auto text-white">
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={(props) => (
-                  <Fragment>
-                    <Alert alert={alert} />
-                    <Search
-                      searchUsers={this.searchUsers}
-                      clearUsers={this.clearUsers}
-                      setAlert={this.setAlert}
-                      showClear={users.length > 0 ? true : false}
+        <div className="">
+          <div className="bg-gray-200 dark:bg-gray-900 pb-36 min-h-screen">
+            <Navbar title="Git Finder" icon="fab fa-github" />
+            <div className="sm:container m-auto text-white">
+              <Switch>
+                <Route
+                  exact
+                  path="/"
+                  render={(props) => (
+                    <Fragment>
+                      <Alert alert={alert} />
+                      <Search
+                        searchUsers={this.searchUsers}
+                        clearUsers={this.clearUsers}
+                        setAlert={this.setAlert}
+                        showClear={users.length > 0 ? true : false}
+                      />
+                      <Users loading={loading} users={users} />
+                    </Fragment>
+                  )}
+                />
+                <Route exact path="/about" component={About} />
+                <Route
+                  exact
+                  path="/user/:login"
+                  render={(props) => (
+                    <User
+                      {...props}
+                      getUser={this.getUser}
+                      user={user}
+                      loading={loading}
+                      getRepos={this.getRepos}
+                      repos={repos}
                     />
-                    <Users loading={loading} users={users} />
-                  </Fragment>
-                )}
-              />
-              <Route exact path="/about" component={About} />
-              <Route
-                exact
-                path="/user/:login"
-                render={(props) => (
-                  <User
-                    {...props}
-                    getUser={this.getUser}
-                    user={user}
-                    loading={loading}
-                    getRepos={this.getRepos}
-                    repos={repos}
-                  />
-                )}
-              />
-            </Switch>
+                  )}
+                />
+              </Switch>
+            </div>
           </div>
         </div>
       </Router>
