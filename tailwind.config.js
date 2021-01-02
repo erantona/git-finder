@@ -6,7 +6,7 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     screens: {
-      sm: '640px',
+      sm: '375px',
       md: '768px',
       lg: '1024px',
       xl: '1280px',
@@ -18,7 +18,7 @@ module.exports = {
 
       black: colors.black,
       white: colors.white,
-      gray: colors.trueGray,
+      gray: colors.blueGray,
       red: colors.red,
       yellow: colors.amber,
       green: colors.emerald,
