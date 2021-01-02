@@ -141,8 +141,8 @@ export class User extends Component {
               ''
             )}
           </div>
-          <div className="text-black grid sm:grid-cols-2 md:grid-cols-4 col-span-2 mx-auto p-4 ">
-            <p className="bg-blue-200 px-4 py-2 rounded-md my-4 mx-3">
+          <div className="text-black grid sm:grid-cols-2 md:grid-cols-4 md:col-span-2 mx-auto p-4 ">
+            <p className="bg-green-200 px-4 py-2 rounded-md my-4 mx-3">
               <span className="font-bold">Followers: </span>
               {followers}
             </p>
@@ -150,17 +150,17 @@ export class User extends Component {
               <span className="font-bold">Following: </span>
               {following}
             </p>
-            <p className="bg-blue-200 px-4 py-2 rounded-md my-4 mx-3">
+            <p className="bg-red-200 px-4 py-2 rounded-md my-4 mx-3">
               <span className="font-bold">Public Repos: </span>
               {public_repos}
             </p>
-            <p className="bg-blue-200 px-4 py-2 rounded-md my-4 mx-3">
+            <p className="bg-pink-200 px-4 py-2 rounded-md my-4 mx-3">
               <span className="font-bold">Public Gists: </span>
               {public_gists}
             </p>
           </div>
         </div>
-        <div className="mt-8 bg-white rounded-lg text-black">
+        <div className="mt-3 bg-white rounded-lg text-black">
           <p className="text-3xl md:text-4xl p-6 font-semibold">
             Recent public repos
           </p>

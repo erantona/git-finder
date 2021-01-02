@@ -18,13 +18,19 @@ const RepoItem = ({ repo }) => {
       </a>
       <input
         type="text"
-        className="pl-3 w-14 outline-none"
+        className="pl-3 font-bold w-4 outline-none text-2xl"
         value={repo.clone_url}
+        placeholder="clone"
         ref={git}
         readOnly
       />
-      <button className="pl-2 outline-white" onClick={copyToClipboard}>
-        <i className="far fa-clipboard mx-auto outline-none"></i>
+      <button
+        className="pl-2 outline-none focus:outline-none"
+        onClick={copyToClipboard}
+      >
+        {' '}
+        Clone:{' '}
+        <i className="far fa-clipboard mx-auto outline-none text-gray-800 "></i>
       </button>
     </div>
   );
