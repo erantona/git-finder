@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const UserItem = ({ user: { login, avatar_url, html_url } }) => {
+const UserItem = ({ user: { login, avatar_url } }) => {
   return (
     <div className=" ">
       <div className="py-6 m-10 text-center rounded-md bg-white dark:bg-gray-800 shadow-lg transform duration-100 hover:scale-105 hover:shadow-2xl">
