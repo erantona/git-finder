@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AlertContext from '../../context/alert/alertContext';
 
-const Alert = ({ alert }) => {
+const Alert = () => {
+  const alertContext = useContext(AlertContext);
+
+  const { alert } = alertContext;
+
   return (
     alert !== null && (
       <div className="animate-pulse max-w-lg mt-3 m-auto text-white px-6 py-4 border-0 rounded relative mb-4 bg-red-500">
